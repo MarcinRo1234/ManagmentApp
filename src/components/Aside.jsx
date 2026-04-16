@@ -1,7 +1,11 @@
+import Logo from "../assets/no-projects";
+
 export default function Aside() {
     const [clicker, setClicker] = useState(false);
+
+    
     let defaultScreen = <div className="mt-24 text-center w-2/3">
-    <img className="w-16 h-16 object-contain mx-auto" />
+    <img className="w-16 h-16 object-contain mx-auto" src={Logo}/>
     <h2 className="text-xl font-bold text-stone-700 my-4">No project selected</h2>
     <p className="text-stone-800 my-4">Select a project or get started with a new one</p>
     <button className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100" onClick={handleClick}>Create new Project</button>
