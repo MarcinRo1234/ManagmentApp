@@ -1,7 +1,7 @@
 import Button from "./Button";
 
 
-export default function Aside() {
+export default function Aside({onStartAddProject}) {
 
   return (
 
@@ -10,7 +10,7 @@ export default function Aside() {
           your projects
         </h2>
         <div>
-          <Button>New project</Button>
+          <Button onClick={onStartAddProject}>New project</Button>
         </div>
         <ul className="mt-8"></ul>
       </aside>
