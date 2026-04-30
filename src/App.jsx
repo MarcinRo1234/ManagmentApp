@@ -11,6 +11,13 @@ function App() {
     projects: []
 
   });
+  let content;
+
+  if(projectsState.selectedProjectId === null){
+    content = <NewProject />
+  } else if (projectsState.selectedProjectId === undefined){
+    content = <NoProjectSelected onStartAddProject={handleStartAddProject} />
+  }
 
   function handleStartAddProject() {
     setProjectsState(prevState => {
@@ -23,7 +30,7 @@ function App() {
   return (
     <main className="h-screen my-8 flex gap-8">
       <Aside onStartAddProject={handleStartAddProject} />
-      <NoProjectSelected onStartAddProject={handleStartAddProject} />
+      {content}
     </main>
   );
 }
