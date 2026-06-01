@@ -32,7 +32,7 @@ function App() {
     setProjectsState(prevState => {
       return {
         ...prevState,
-        selectedProjectId: undefined
+        selectedProjectId: undefined,
       }
     })
   }

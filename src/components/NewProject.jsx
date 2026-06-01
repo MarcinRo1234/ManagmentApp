@@ -3,7 +3,7 @@ import Input from "./Input.jsx";
 import Modal from "./Modal.jsx";
 
 export default function NewProject({ onAdd, onCancel }) {
-    const odal = useRef()
+    const modal = useRef()
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -32,8 +32,8 @@ export default function NewProject({ onAdd, onCancel }) {
     <>
       
         <Modal ref={modal} buttonCaption="Okay">
-            <h2 className="text-xl font-bold text-stone-700 my-4">Invalid input</h2>;
-            <p className="text-stone-600 mb-4">Oops.. looks like you forget the value.</p>;
+            <h2 className="text-xl font-bold text-stone-700 my-4">Invalid input</h2>
+            <p className="text-stone-600 mb-4">Oops.. looks like you forget the value.</p>
             <p className="text-stone-600 mb-4">Please provide a proper value</p>
         </Modal>
       <div className="w-[35rem] mt-16">
