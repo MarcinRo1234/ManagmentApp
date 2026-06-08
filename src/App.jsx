@@ -3,6 +3,7 @@ import { useState } from "react";
 import  Aside  from "./components/Aside.jsx";
 import NewProject from "./components/NewProject.jsx";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
+import SelectedProject from "./components/SelectedProject.jsx";
 
 
 function App() {
@@ -42,8 +43,26 @@ function App() {
       }
     })
   }
+  function handleSelectProject(id) {
+    setProjectsState(prevState => {
+      return {
+        ...prevState,
+        selectedProjectId: id
+      }
+    })
+  }
+  function handleDeleteProject() {
+    setProjectsState(prevState => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: prevState.projects.filter((project) => project.id !== prevState.selectedProjectId)
+      }
+    })
+  }
+  const selectedProject = projectsState.projects.find(project => project.id === projectsState.selectedProjectId)
   
-  let content;
+  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject}/>;
 
   if(projectsState.selectedProjectId === null){
     content = <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject}/>
@@ -54,7 +73,7 @@ function App() {
   
   return (
     <main className="h-screen my-8 flex gap-8">
-      <Aside onStartAddProject={handleStartAddProject} projects={projectsState.projects}/>
+      <Aside onStartAddProject={handleStartAddProject} projects={projectsState.projects} onSelectProject={handleSelectProject}/>
       {content}
     </main>
   );
