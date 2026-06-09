@@ -1,6 +1,7 @@
 import NewTask from "./NewTask";
 
 export default function Tasks({ onAdd, onDelete, tasks }) {
+  return (
   <section>
     <h2 className="text-2xl font-boold text-stone-700 mb-4">Tasks</h2>
     <NewTask onAdd={onAdd} />
@@ -24,5 +25,5 @@ export default function Tasks({ onAdd, onDelete, tasks }) {
         ))}
       </ul>
     )}
-  </section>;
+  </section>)
 }
