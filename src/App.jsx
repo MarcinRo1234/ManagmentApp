@@ -21,7 +21,6 @@ function App() {
       };
       return {
         ...prevState,
-        selectedProjectId: undefined,
         tasks: [newTask, ...prevState.tasks],
       };
     });
