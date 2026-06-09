@@ -6,8 +6,13 @@ export default function NewTask({ onAdd }) {
         setEnteredTask(event.target.value);
     }
     function handleClick() {
-        onAdd(enteredTask);
-        setEnteredTask("");
+        if(enteredTask === ""){
+            return
+        } else {
+            onAdd(enteredTask);
+            setEnteredTask("");
+
+        }
     }
     return (
     <div className="flex items-center gap-4">
